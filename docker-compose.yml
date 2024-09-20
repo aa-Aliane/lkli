@@ -1,0 +1,68 @@
+version: "3.9"
+
+services:
+  # Postgres
+  db:
+    container_name: postgresql_db
+    image: postgis/postgis:12-3.4-alpine
+    restart: on-failure
+    ports:
+      - 5432:5432
+
+    env_file:
+      - ./env/db.env
+
+    volumes:
+      - psql_data:/var/lib/postgresql/data
+
+    networks:
+      - backend_network
+
+  # Django and Drf backend
+  backend:
+    container_name: lokali-backend
+    build:
+      context: .
+      dockerfile: dockerfiles/backend.dockerfile
+    ports:
+      - 8000:8000
+    command: >
+      bash -c "uvicorn app.asgi:application --host 0.0.0.0 --port 8000 --reload"
+    volumes:
+      - ./backend:/code
+    networks:
+      - backend_network
+    depends_on:
+      - db
+
+  # Reactjs frontend
+  frontend:
+    container_name: lokali-frontend
+    build:
+      context: .
+      dockerfile: dockerfiles/frontend.dockerfile
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - ./frontend:/code
+    command: >
+      sh -c "npm i && npm run dev -- --host"
+    ports:
+      - 5173:5173
+    depends_on:
+      - backend
+
+  #other:
+  selenium:
+    image: joyzoursky/python-chromedriver
+    ports:
+      - "4444:4444"
+    volumes:
+      - ./dev/shm:/usr/workspace
+
+volumes:
+  psql_data:
+
+networks:
+  backend_network:
+    driver: bridge

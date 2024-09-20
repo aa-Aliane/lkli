@@ -1,0 +1,71 @@
+@use "../abstract/" as *;
+
+:root {
+  // colors
+  @each $clr, $shades in $colors {
+    @each $key, $value in $shades {
+      --clr-#{$clr}-#{$key}: #{$value};
+    }
+  }
+
+  //   fonts sizes
+  @each $key, $value in $font-sizes {
+    --fs-#{$key}: #{$value};
+  }
+
+  //   fonts weights
+  @each $key, $value in $font-weights {
+    --fw-#{$key}: #{$value};
+  }
+
+  // paddings and margins
+  @each $key, $value in $spacing {
+    --s#{$key}: #{$value};
+  }
+
+  --ff-latin: "Lato", sans-serif;
+  --ff-latin-2: "Merriweather", serif;
+  --ff-arabic: "Cairo", sans-serif;
+  --dr: 0.4rem;
+  --dr-sm: 0.2rem;
+
+  --duration-1: 0.1s;
+
+  --b-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  --b-shadow-2: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  --b-shadow-3: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+::backdrop {
+  @each $clr, $shades in $colors {
+    @each $key, $value in $shades {
+      --clr-#{$clr}-#{$key}: #{$value};
+    }
+  }
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.centered {
+  width: fit-content;
+  margin: 5rem auto;
+}
+
+.divider-bottom {
+  border-bottom: 2px solid var(--clr-neutral-900);
+}
+
+.boxed {
+  padding: 1rem;
+  border: 0.2rem solid var(--clr-primary-700);
+  width: fit-content;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap");
+
+@import url("https://cdn.jsdelivr.net/npm/@oddbird/popover-polyfill@latest/dist/popover.css");

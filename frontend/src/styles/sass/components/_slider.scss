@@ -1,0 +1,21 @@
+.slider-0 {
+  &__track {
+    height: 0.2rem;
+    position: relative;
+    background-color: var(--clr-primary-500);
+    border-radius: 60px;
+  }
+
+  &__thumb {
+    position: absolute;
+    cursor: grab;
+    top: 0;
+    left: 0;
+    background-color: var(--clr-primary-500);
+    transform: translate(-50%, -50%);
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+}

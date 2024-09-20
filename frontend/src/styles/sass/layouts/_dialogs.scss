@@ -1,0 +1,42 @@
+.dialog {
+  left: 33%;
+  top: 18%;
+  width: fit-content;
+  min-width: 25rem;
+  min-height: 25rem;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 10px var(--clr-neutral-500);
+
+  &__title {
+    & p {
+      margin: 0 auto;
+      width: fit-content;
+    }
+  }
+  &__header {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    align-items: center;
+  }
+
+  &__content {
+    padding: 1rem;
+
+    & form {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0;
+    border-top: 2px solid var(--clr-neutral-200);
+  }
+}
