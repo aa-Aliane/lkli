@@ -1,0 +1,41 @@
+.mobile-footer {
+  display: none;
+}
+
+.profile-picture {
+  border-radius: 50px;
+  cursor: pointer;
+  & img {
+    border-radius: 50px;
+    width: 2rem;
+    height: auto;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
+
+@media screen and (min-width: 400px) {
+}
+
+@media screen and (max-width: 6in) {
+  .mobile-footer {
+    display: unset;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 0.3rem 2rem;
+    background-color: var(--clr-neutral-100);
+    overflow: hidden;
+    height: 4.8rem;
+    z-index: 500;
+  }
+
+  .mobile-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

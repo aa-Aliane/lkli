@@ -1,0 +1,9 @@
+host=db
+user=user1
+dbname=lokali
+port=5432
+password=abc123d
+
+
+
+

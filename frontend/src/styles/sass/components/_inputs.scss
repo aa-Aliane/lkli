@@ -1,0 +1,26 @@
+.text {
+  &--action {
+    box-shadow: var(--b-shadow);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    & input {
+      height: 100%;
+      border: none;
+      box-shadow: none !important;
+    }
+
+    & button {
+      &[data-display="false"] {
+        display: none;
+      }
+    }
+  }
+
+  &--default {
+    box-shadow: var(--b-shadow);
+  }
+}
+

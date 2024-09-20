@@ -1,0 +1,47 @@
+.profile {
+  &--picture {
+    border-radius: 50px;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
+
+.heart {
+  cursor: pointer;
+
+  &:hover {
+    svg > path {
+      stroke: red;
+      transition: stroke 0.3s linear;
+    }
+  }
+
+  &:active {
+    animation: like 0.3s ease-in-out;
+  }
+
+  &:active svg > path,
+  &[data-liked="true"] svg > path {
+    stroke: red;
+    fill: red;
+    transition:
+      stroke 0.3s linear,
+      fill 0.3s linear;
+  }
+}
+
+@keyframes like {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

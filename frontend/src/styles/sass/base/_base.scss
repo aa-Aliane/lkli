@@ -1,0 +1,113 @@
+body {
+  background-color: var(--clr-neutral-300);
+  font-family: var(--ff-latin);
+}
+
+h3,
+h4,
+h5,
+p {
+  font-weight: var(--fw-xxl);
+  line-height: 2rem;
+}
+
+.main-layout {
+  position: relative;
+  overflow-y: auto;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.app {
+  font-size: var(--fs-m);
+  font-weight: var(--fw-regular);
+  font-family: var(--ff-latin);
+}
+
+.app[data-lang="ar"] {
+  direction: rtl;
+  font-size: var(--fs-ar);
+  font-family: var(--ff-arabic);
+  color: var(--clr-primary-900);
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+input[type="email"],
+input[type="password"] {
+  padding: 0.5rem 0.8rem;
+  box-shadow:
+    rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  border-radius: 5px;
+  height: 2.5rem;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: var(--clr-primary-700);
+  width: 1em;
+  height: 1em;
+  border: 0.15em solid var(--clr-primary-700);
+  // transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+
+input[type="checkbox"]::before,
+input[type="radio"]::before {
+  content: "";
+  width: 0.5em;
+  height: 0.5em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--clr-primary-700);
+}
+
+input[type="radio"],
+input[type="radio"]::before {
+  border-radius: 50%;
+}
+
+input[type="checkbox"]:checked::before,
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+fieldset {
+  padding: 1rem 2rem;
+  border: 0.2rem solid var(--clr-primary-700);
+  width: fit-content;
+  & legend {
+    margin: auto;
+    padding: 0 1rem;
+  }
+
+  & label > div {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+.form-control {
+  margin-top: 1em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+hr {
+  border: 2px solid var(--clr-primary-700);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+dialog::backdrop {
+  background: var(--clr-neutral-900);
+  opacity: 0.2;
+}

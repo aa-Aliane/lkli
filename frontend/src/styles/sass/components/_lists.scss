@@ -1,0 +1,30 @@
+.list,
+.list--hz {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.list {
+  flex-direction: column;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    width: 100%;
+  }
+}
+
+.list--hz {
+  flex-direction: row;
+  padding: 0.5rem;
+
+  &__item {
+    box-shadow: var(--b-shadow);
+    font-size: var(--fs-s);
+    padding: 0.1rem 0.5rem;
+    border-radius: 50px;
+  }
+}

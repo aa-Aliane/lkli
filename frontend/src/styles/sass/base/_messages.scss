@@ -1,0 +1,20 @@
+.message {
+  animation: alert 0.3s ease-in-out;
+  animation-delay: 0.1s;
+  &--error {
+    color: var(--clr-meta-1);
+  }
+
+  &--success {
+    color: var(--clr-meta-3);
+  }
+}
+
+@keyframes alert {
+  0% {
+    transform: translateX(-5rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
